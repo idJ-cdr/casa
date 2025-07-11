@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inicio – IDJ Casa de Refugio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: url('https://i.postimg.cc/JhPBMXVL/IMG-2586.jpg') center center / cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    header h1, header p {
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      background: #362062;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    nav a, .lang-btn {
+      color: white;
+      text-decoration: none;
+      margin: 8px 12px;
+      font-weight: bold;
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .section ul li {
+      padding: 10px 0;
+    }
+
+    footer {
+      background: #4A2D81;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 24px;
+      }
+
+      header p {
+        font-size: 16px;
+      }
+
+      nav a, .lang-btn {
+        font-size: 14px;
+        margin: 6px 10px;
+      }
+
+      .section {
+        padding: 30px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+      }
+
+      nav a, .lang-btn {
+        display: block;
+        margin: 8px 0;
+      }
+    }
+  </style>
+
+  <!-- Language Toggle Script (unchanged) -->
+  <script>
+    function toggleLanguage() {
+      const isSpanish = document.documentElement.lang === "es";
+      document.documentElement.lang = isSpanish ? "en" : "es";
+
+      document.getElementById('nav-welcome').textContent = isSpanish ? "Welcome" : "Bienvenida";
+      document.getElementById('nav-pastor').textContent = "Pastor";
+      document.getElementById('nav-contact').textContent = isSpanish ? "Contact" : "Contacto";
+
+      document.getElementById('slogan').textContent = isSpanish
+        ? '"A place of hope and restoration"'
+        : '"Un lugar de esperanza y restauración"';
+
+      document.querySelector('.lang-btn').textContent = isSpanish ? "Español" : "English";
+
+      document.getElementById('welcome-title').textContent = isSpanish ? "Welcome" : "Bienvenidos";
+      document.getElementById('welcome-text').textContent = isSpanish
+        ? "At IDJ Casa de Refugio, we believe in the transforming power of God's love. Our church is a place where families can grow spiritually, find comfort, and experience the living presence of Jesus."
+        : "En IDJ Casa de Refugio, creemos en el poder transformador del amor de Dios. Nuestra iglesia es un lugar donde las familias pueden crecer espiritualmente, encontrar consuelo y experimentar la presencia viva de Jesús.";
+
+      document.getElementById('services-title').textContent = isSpanish ? "Service Times" : "Horarios de Servicios";
+      document.getElementById('service-list').innerHTML = isSpanish
+        ? `<li><strong>Sunday:</strong> General Service - 4:30 PM</li><li><strong>Tuesday:</strong> Bible Study - 7:00 PM</li>`
+        : `<li><strong>Domingo:</strong> Servicio General - 4:30 PM</li><li><strong>Martes:</strong> Estudio Bíblico - 7:00 PM</li>`;
+
+      document.getElementById('pastor-title').textContent = isSpanish ? "Message from the Pastor" : "Mensaje del Pastor";
+      document.getElementById('pastor-text').innerHTML = isSpanish
+        ? `"Our desire is that everyone who enters our doors experiences the love of Christ and receives the restoration only He can give. We invite you to be part of this family of faith."<br><br>— Pastor Juan Pérez`
+        : `"Nuestro deseo es que cada persona que entre por nuestras puertas experimente el amor de Cristo y reciba la restauración que solo Él puede dar. Te invitamos a formar parte de esta familia de fe."<br><br>— Pastor Juan Pérez`;
+
+      document.getElementById('contact-title').textContent = isSpanish ? "Contact" : "Contacto";
+      document.getElementById('contact-info').innerHTML = `
+        📍 ${isSpanish ? "Address" : "Dirección"}: 830 E Vista Way, Suite 221, Vista, CA 92084<br>
+        📞 ${isSpanish ? "Phone" : "Teléfono"}: +123 456 7890<br>
+        📧 ${isSpanish ? "Email" : "Correo"}: contacto@casaderefugio.org
+      `;
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>IDJ Casa de Refugio</h1>
+    <p id="slogan">"Un lugar de esperanza y restauración"</p>
+  </header>
+
+  <nav>
+    <a href="index.html" id="nav-welcome">Bienvenida</a>
+    <a href="pastor.html" id="nav-pastor">Pastor</a>
+    <a href="contacto.html" id="nav-contact">Contacto</a>
+    <button class="lang-btn" onclick="toggleLanguage()">English</button>
+  </nav>
+
+  <section class="section" id="bienvenida">
+    <h2 id="welcome-title">Bienvenidos</h2>
+    <p id="welcome-text">
+      En IDJ Casa de Refugio, creemos en el poder transformador del amor de Dios. Nuestra iglesia es un lugar donde las familias pueden crecer espiritualmente, encontrar consuelo y experimentar la presencia viva de Jesús.
+    </p>
+  </section>
+
+  <section class="section" id="servicios">
+    <h2 id="services-title">Horarios de Servicios</h2>
+    <ul id="service-list">
+      <li><strong>Domingo:</strong> Servicio General - 4:30 PM</li>
+      <li><strong>Martes:</strong> Estudio Bíblico - 7:00 PM</li>
+    </ul>
+  </section>
+
+  <section class="section" id="pastor">
+    <h2 id="pastor-title">Mensaje del Pastor</h2>
+    <p id="pastor-text">
+      "Nuestro deseo es que cada persona que entre por nuestras puertas experimente el amor de Cristo y reciba la restauración que solo Él puede dar. Te invitamos a formar parte de esta familia de fe."<br><br>
+      — Pastor Valentin Blancas
+    </p>
+  </section>
+
+  <section class="section" id="contacto">
+    <h2 id="contact-title">Contacto</h2>
+    <p id="contact-info">
+      📍 Dirección: 830 E Vista Way, Suite 221, Vista, CA 92084<br>
+      📞 Teléfono: +123 456 7890<br>
+      📧 Correo: contacto@casaderefugio.org
+    </p>
+    <iframe src="https://www.google.com/maps?q=830+E+Vista+Way+Suite+221,+Vista,+CA+92084&output=embed" loading="lazy"></iframe>
+  </section>
+
+  <footer>
+    <p>© 2024 IDJ Casa de Refugio | <a href="inc.html">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>

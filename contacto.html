@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inicio – IDJ Casa de Refugio</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: url('https://i.postimg.cc/JhPBMXVL/IMG-2586.jpg') center center / cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      position: relative;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    header h1, header p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+    }
+
+    nav {
+      background: #362062;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    nav a, .lang-btn {
+      color: white;
+      text-decoration: none;
+      margin: 8px 12px;
+      font-weight: bold;
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer {
+      background: #4A2D81;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      nav a, .lang-btn {
+        font-size: 14px;
+        margin: 6px 10px;
+      }
+
+      .section {
+        padding: 30px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 20px 10px;
+      }
+    }
+  </style>
+
+  <script>
+    function toggleLanguage() {
+      const isSpanish = document.documentElement.lang === "es";
+      document.documentElement.lang = isSpanish ? "en" : "es";
+
+      // Nav
+      document.getElementById('nav-welcome').textContent = isSpanish ? "Welcome" : "Bienvenida";
+      document.getElementById('nav-pastor').textContent = "Pastor";
+      document.getElementById('nav-contact').textContent = isSpanish ? "Contact" : "Contacto";
+      document.querySelector('.lang-btn').textContent = isSpanish ? "Español" : "English";
+
+      // Slogan
+      document.getElementById('slogan').textContent = isSpanish
+        ? '"A place of hope and restoration"'
+        : '"Un lugar de esperanza y restauración"';
+
+      // Section title
+      document.querySelector('.section h2').textContent = isSpanish
+        ? "Better yet, visit us in person!"
+        : "¡Mejor aún, visítenos en persona!";
+
+      // Contact text
+      document.querySelectorAll('.section p')[0].textContent = isSpanish
+        ? "We look forward to seeing you at:"
+        : "Te esperamos en:";
+      document.querySelectorAll('.section p')[1].innerHTML = `
+        <strong>IDJ Casa De Refugio</strong><br>
+        830 East Vista Way, Suite 221<br>
+        Vista, California 92083, United States<br><br>
+        <strong>${isSpanish ? "Phone" : "Teléfono"}:</strong> (760) 675-4847<br>
+        <strong>${isSpanish ? "Email" : "Correo"}:</strong> casaderefugio0724@gmail.com
+      `;
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>IDJ Casa de Refugio</h1>
+    <p id="slogan">"Un lugar de esperanza y restauración"</p>
+  </header>
+
+  <nav>
+    <a href="index.html" id="nav-welcome">Bienvenida</a>
+    <a href="pastor.html" id="nav-pastor">Pastor</a>
+    <a href="contacto.html" id="nav-contact">Contacto</a>
+    <button class="lang-btn" onclick="toggleLanguage()">English</button>
+  </nav>
+
+  <section class="section">
+    <h2>¡Mejor aún, visítenos en persona!</h2>
+    <p>Te esperamos en:</p>
+    <p>
+      <strong>IDJ Casa De Refugio</strong><br>
+      830 East Vista Way, Suite 221<br>
+      Vista, California 92083, United States<br><br>
+      <strong>Teléfono:</strong> (760) 675-4847<br>
+      <strong>Correo:</strong> casaderefugio0724@gmail.com
+    </p>
+    <iframe src="https://www.google.com/maps?q=830+E+Vista+Way+Suite+221,+Vista,+CA+92083&amp;output=embed" loading="lazy"></iframe>
+  </section>
+
+  <footer>
+    <p>© 2024 IDJ Casa de Refugio | <a href="inc.html">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>
